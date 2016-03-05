@@ -98,7 +98,7 @@ func (self *server) listen(c connChan, ip net.IP, port int) (l net.Listener, err
 	if ip.To4() == nil {
 		proto = "tcp6"
 	}
-	l, err = net.ListenTCP(proto, &net.TCPAddr{ip, int(port)})
+	l, err = net.ListenTCP(proto, &net.TCPAddr{ip, int(port), ""})
 	if err == nil {
 		go func() {
 			for {
